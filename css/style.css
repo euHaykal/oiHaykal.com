@@ -1,0 +1,264 @@
+/* ---- SETUP GERAL ---- */
+
+:root {
+    font-size: 16px;
+
+    --risingblack: #232020;
+    --seasalt: #F6F6F6;
+    --redmunsell: #FF003D;
+    --pinkmauve: #FFB8FF;
+    --greenmindaro: #C4F66C;
+}
+
+h1, h2, h4, h5, p {
+    color: var(--seasalt);
+}
+
+h3 {
+    color: var(--redmunsell);
+}
+
+h1, h2, h3 {
+    font-family: Montserrat;
+}
+
+h4, h5, h6, p {
+    font-family: Open Sans;
+}
+
+h1, h2, h3 {
+    font-weight: 900;
+}
+
+h5, h6 {
+    font-weight: bold;
+}
+
+h4, p {
+    font-weight: 400;
+}
+
+h1, h2 {
+    line-height: 0.95;
+}
+
+h3, h4, h5, p {
+    line-height: 1.25;
+}
+
+h1 {  
+    font-size: 8rem;
+}
+
+h2 {
+    font-size: 3rem;
+}
+
+h3 {
+    font-size: 2.5rem;
+}
+
+h4 {
+    font-size: 1.75rem;
+}
+
+h5 {
+    font-size: 1.5rem;
+}
+
+h6, p {
+    font-size: 1rem;
+}
+
+body {
+    background-color: var(--risingblack);
+    margin: 0px;
+    padding: 0px;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+}
+
+/* ---- COMEÇO HEADER ---- */
+
+header {
+    width: 100vh;
+    height: 0px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+
+    margin-left: clamp(20px, 10vw, 100px);
+    margin-right: clamp(20px, 10vw, 100px);
+    margin-top: clamp(50px, 15vh, 180px);
+    padding: 0;
+
+}
+
+.navbar{
+    animation: entryHeader 1.4s ease-out 1.2s forwards
+}
+
+@keyframes entryHeader{
+    0%{
+        transform: translateY(-600%);
+    }
+    100%{
+        transform: translateY(0%);
+    }
+}
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    align-items: right;
+}
+
+.navbar ul li a {
+    position: relative;
+    display: block;
+    width: 40px;
+    height: 40px;
+}
+
+.default-lab {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.3s ease; /* Suaviza a transição */
+    z-index: 1;
+}
+
+.hover-lab {
+    position: absolute;
+    top: -30%;
+    left: 0;
+    transform: scale(0.2);
+    opacity: 0;
+    z-index: 0;
+}
+
+.navbar ul li a:hover .default-lab {
+    /*opacity: 0;  Oculta a imagem padrão ao passar o mouse */
+    transform: scale(1.2);
+}
+
+.navbar ul li a:hover .hover-lab {
+    animation: hoverLab 0.3s ease 0s forwards;
+}
+
+@keyframes hoverLab{
+    0%{
+        opacity: 0;
+        transform: scale(0.2);
+    }
+    50%{
+        transform: scale(0.4);
+    }
+    100%{
+        top: -110%;
+        opacity: 1;
+        transform: scale(0.6);
+    }
+}
+
+/* ---- FINAL HEADER ---- */
+
+/* ---- COMEÇO MAIN ---- */
+
+#exclamation {
+    color: var(--greenmindaro);
+}
+
+#myname {
+    font-weight: bold;
+}
+
+.function {
+    color: var(--pinkmauve);
+    font-weight: bold;
+}
+
+
+main {
+    flex: 1;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.main-left{
+    position: relative;
+    margin-left: clamp(20px, 10vw, 100px);
+}
+
+.skull-logo{
+    position: absolute;
+    height: 300px;
+    z-index: 1;
+
+    filter: drop-shadow(5px 6px 2px rgba(0, 0, 0, 0.5));
+
+    animation: entrySkull 1.2s ease-out 0.8s forwards,
+    
+    breathe 5s ease-in-out 2.1s infinite;
+}
+
+@keyframes entrySkull{
+    0%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(0%);
+    }
+}
+
+
+@keyframes breathe {
+    0%, 100% {
+        transform:  translate(0, 0);
+    }
+    50% {
+        transform:  translate(0, -20px);
+    }
+}
+
+.title{
+    top: 90px;
+    left: 49%;
+    position: relative;
+    z-index: 0;
+
+    animation: appearBottomtoTop 1.2s ease-out 1.2s forwards;
+}
+
+@keyframes appearBottomtoTop{
+    0%{
+        opacity: 0;
+        transform: translateY(50%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+.main-right{
+    position: relative;
+    margin-right: clamp(20px, 10vw, 100px);
+
+    top: 185px;
+
+    animation: appearBottomtoTop 1.2s ease-out 1.4s forwards;
+}
+
+/* ---- FINAL MAIN ---- */
