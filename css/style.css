@@ -100,13 +100,37 @@ body, html {
     100% { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes mouse {
-    0% { transform: rotate(0); }
-    25% { transform: rotate(-45deg); }
-    50% { transform: rotate(0); } 
-    75% { transform: rotate(45deg); }
-    100% { transform: rotate(0); }
+@keyframes mouseBounce {
+    70% { transform:translateY(0%); }
+    80% { transform:translateY(-15%); }
+    90% { transform:translateY(0%); }
+    95% { transform:translateY(-7%); }
+    97% { transform:translateY(0%); }
+    99% { transform:translateY(-3%); }
+    100% { transform:translateY(0); }
 }
+
+@keyframes fade-in-up {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 50%;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-out-down {
+    0% {
+      opacity: 50%;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+  }
 
 /* ---- FINAL ANIMAÇÕES ---- */
 
@@ -206,11 +230,18 @@ section {
 }
 
 .one {
-    flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.one-main {
     display: flex;
-    align-items: center;
+    flex-direction: row;
     justify-content: space-between;
-    padding: 0 var(--spacing-small)
+    align-items: center;
+    width: 100%; /* Ajuste conforme necessário */
 }
 
 .main-left {
@@ -238,20 +269,62 @@ section {
 .main-right {
     position: relative;
     top: 120px;
-    right: 4%;
+    right: 16%;
     margin-right: var(--spacing-medium);
     animation: appearBottomtoTop 1.2s ease-out 1.4s forwards;
 }
 
-.mouse {
-    position: absolute;
-    top: 780px;
-    left: 50%;
-    margin-right: var(--spacing-medium);
-
-    /* animation: appearBottomtoTop 1.2s ease-out 2.5s forwards; */
-    animation: mouse 0.3s ease-out 3s infinite;
+.test {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    top: 180px;
+    gap: 16px; /* Espaço entre a imagem e o texto */
 }
+
+.test-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza a imagem e o texto horizontalmente */
+    gap: 10px; /* Espaço entre a imagem e o texto */
+}
+
+.test-container img {
+    width: 30px; /* Ajuste o tamanho da imagem conforme necessário */
+    height: auto; /* Mantém a proporção da imagem */
+    transition: transform 0.3s ease;
+}
+
+.test-container p {
+    margin: 0;
+    padding: 0;
+    white-space: nowrap; /* Impede que o texto quebre em várias linhas */
+    text-align: center; /* Centraliza o texto horizontalmente */
+
+    opacity: 0;
+}
+
+.default-mouse {
+    animation: appearBottomtoTop 1.2s ease-out 3s forwards, mouseBounce 2s ease infinite;
+}
+
+.hover-mouse {
+    animation: fade-out-down 2s ease forwards;
+}
+
+.test-container:hover .default-mouse {
+    transform: scale(1.2);
+}
+
+.test-container:hover .hover-mouse {
+    animation: fade-in-up 2s ease forwards;
+}
+
+/* .mouse:hover {
+    animation: ;
+} */
 
 .two {
     position: relative;
