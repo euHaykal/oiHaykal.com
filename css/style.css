@@ -327,7 +327,7 @@ section {
 }
 
 .test-container:hover .default-mouse {
-    transform: scale(1.2);
+    animation-play-state: paused;
 }
 
 .test-container:hover .hover-mouse {
