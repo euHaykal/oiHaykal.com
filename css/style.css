@@ -138,9 +138,13 @@ body, html {
 /* ---- COMEÇO HEADER ---- */
 
 header {
-    position: fixed;
-    width: 100%; /* Corrige a largura do header */
-    height: auto; /* Remove a altura fixa */
+    position: fixed; /* Mantemos fixed para o header ficar fixo no topo */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 1000; /* Garante que o header fique acima de tudo */
+    pointer-events: none; /* Permite que cliques passem pelo header */
 }
 
 nav {
@@ -149,6 +153,7 @@ nav {
     align-items: center;
     margin-top: var(--spacing-large);
     padding: 0 var(--spacing-large); /* Espaçamento lateral responsivo */
+
 }
 
 .navbar {
@@ -169,6 +174,7 @@ nav {
     display: block;
     width: 40px;
     height: 40px;
+    pointer-events: auto;
 }
 
 .default-lab {
@@ -200,6 +206,12 @@ nav {
 
 
 /* ---- COMEÇO MAIN ---- */
+
+/* Começo da Primeira página  */
+main{
+    position: relative;
+    height: 100vh;
+}
 
 .container{
     scroll-snap-type: y mandatory;
@@ -321,13 +333,12 @@ section {
 .test-container:hover .hover-mouse {
     animation: fade-in-up 2s ease forwards;
 }
+/* Final da Primeira página  */
 
-/* .mouse:hover {
-    animation: ;
-} */
-
+/* Começo da Segunda página  */
 .two {
     position: relative;
+    z-index: 1; /* Garante que a section two fique abaixo do header */
     flex: 1;
     display: block;
     align-items: center;
@@ -339,7 +350,6 @@ section {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    z-index: 99;
 }
 
 .btn {
@@ -379,9 +389,6 @@ section {
 .ellipse1 { left: 500px; }
 .ellipse2 { left: calc(500px + 200px); }
 .ellipse3 { left: calc((500px + 180px) + 350px); }
-
-
-
 
 .box {
     display: flex;
@@ -441,10 +448,13 @@ section {
 .career-text-weight {
     font-weight: var(--font-weight-bold);
 }
+/* Final da Segunda página  */
 
+/* Começo da Terceira página  */
 .three {
     background-color: #FF003D;
 }
 
+/* Final da Terceira página  */
 
 /* ---- FINAL MAIN ---- */
