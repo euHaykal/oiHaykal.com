@@ -79,10 +79,26 @@ body, html {
     100% { transform: translateY(0); }
 }
 
-@keyframes hoverLab {
-    0% { opacity: 0; transform: scale(0.2); }
-    50% { transform: scale(0.4); }
-    100% { top: -110%; opacity: 1; transform: scale(0.6); }
+@keyframes lab-fade-in-up {
+    0% { 
+        opacity: 0; 
+        transform: scale(0.4) translateY(80px); 
+    }
+    100% {  
+        opacity: 1; 
+        transform: scale(0.6) translateY(0);
+     }
+}
+
+@keyframes lab-fade-out-down {
+    0% { 
+        opacity: 1; 
+        transform: scale(0.6) translateY(0);  
+    }
+    100% {  
+        opacity: 0; 
+        transform: scale(0.4) translateY(80px); 
+     }
 }
 
 @keyframes entrySkull {
@@ -131,6 +147,24 @@ body, html {
       transform: translateY(20px);
     }
   }
+
+  @keyframes pulseShadow {
+    0% {
+        -webkit-box-shadow:0px 0px 50px 0px rgba(255,0,60,0.5);
+        -moz-box-shadow: 0px 0px 50px 0px rgba(255,0,60,0.5);
+        box-shadow: 0px 0px 50px 0px rgba(255, 0, 60, 0.5); /* Sombra menor */
+    }
+    50% {
+        -webkit-box-shadow:0px 0px 150px 16px rgba(255,0,60,0.5);
+        -moz-box-shadow: 0px 0px 150px 16px rgba(255,0,60,0.5);
+        box-shadow: 0px 0px 150px 16px rgba(255, 0, 60, 0.5); /* Sombra maior */
+    }
+    100% {
+        -webkit-box-shadow:0px 0px 50px 0px rgba(255,0,60,0.5);
+        -moz-box-shadow: 0px 0px 50px 0px rgba(255,0,60,0.5);
+        box-shadow: 0px 0px 50px 0px rgba(255, 0, 60, 0.5); /* Volta à sombra menor */
+    }
+}
 
 /* ---- FINAL ANIMAÇÕES ---- */
 
@@ -187,11 +221,12 @@ nav {
 
 .hover-lab {
     position: absolute;
-    top: -30%;
+    top: -105%;
     left: 0;
-    transform: scale(0.2);
     opacity: 0;
     z-index: 0;
+
+    animation: lab-fade-out-down 0.5s ease forwards;
 }
 
 .navbar ul li a:hover .default-lab {
@@ -199,7 +234,7 @@ nav {
 }
 
 .navbar ul li a:hover .hover-lab {
-    animation: hoverLab 0.3s ease 0s forwards;
+    animation: lab-fade-in-up 1s ease forwards;
 }
 
 /* ---- FINAL HEADER ---- */
@@ -391,19 +426,27 @@ section {
 .ellipse3 { left: calc((500px + 180px) + 350px); }
 
 .box {
+    position: absolute;
+    top: 60%; /* Move o .box para o centro vertical */
+    left: 50%; /* Move o .box para o centro horizontal */
+    transform: translate(-50%, -50%); /* Ajusta o posicionamento com base no tamanho do .box */
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     align-content: center;
+    border-radius: 15px;
+
+
+    animation: pulseShadow 3s ease-in-out infinite;
 }
 
 .left-box {
+    position: relative;
     width: 520px;
     height: 420px;
     background-color: #181818;
-    border-radius: 15px;
+    border-radius: 15px 0 0 15px;
     padding-left: calc(40/1920 * 100vw);
     padding-top: calc(62/1920 * 100vw);
     padding-bottom: calc(150/1920 * 100vw);
@@ -431,10 +474,10 @@ section {
 }
 
 .right-box {
-    width: 520px;
+    width: 540px;
     height: 420px;
     background-color: #0C0C0C;
-    border-radius: 15px;
+    border-radius: 0 15px 15px 0;
     padding-left: calc(55/1920 * 100vw);
     padding-right: calc(55/1920 * 100vw);
     padding-top: calc(65/1920 * 100vw);
