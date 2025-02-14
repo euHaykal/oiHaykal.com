@@ -39,7 +39,7 @@
 
     /* Espaçamentos */
     --spacing-small: clamp(20px, 5vw, 50px);
-    --spacing-medium: clamp(50px, 10vw, 100px);
+    --spacing-medium: clamp(50px, 10vw, 150px);
     --spacing-large: clamp(100px, 15vw, 200px);
 }
 
@@ -100,6 +100,14 @@ body, html {
     100% { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes mouse {
+    0% { transform: rotate(0); }
+    25% { transform: rotate(-45deg); }
+    50% { transform: rotate(0); } 
+    75% { transform: rotate(45deg); }
+    100% { transform: rotate(0); }
+}
+
 /* ---- FINAL ANIMAÇÕES ---- */
 
 
@@ -109,7 +117,6 @@ header {
     position: fixed;
     width: 100%; /* Corrige a largura do header */
     height: auto; /* Remove a altura fixa */
-    z-index: 1000;
 }
 
 nav {
@@ -232,21 +239,34 @@ section {
     position: relative;
     top: 120px;
     right: 4%;
-    margin-right: var(--spacing-large);
+    margin-right: var(--spacing-medium);
     animation: appearBottomtoTop 1.2s ease-out 1.4s forwards;
 }
 
+.mouse {
+    position: absolute;
+    top: 780px;
+    left: 50%;
+    margin-right: var(--spacing-medium);
+
+    /* animation: appearBottomtoTop 1.2s ease-out 2.5s forwards; */
+    animation: mouse 0.3s ease-out 3s infinite;
+}
+
 .two {
+    position: relative;
     flex: 1;
     display: block;
     align-items: center;
-    padding: 0 var(--spacing-small)
+    padding: 0 300px;
+    padding-top: 175px;
 }
 
 .title-two{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    z-index: 99;
 }
 
 .btn {
@@ -265,10 +285,30 @@ section {
     transition: background-color 0.3s ease; /* Transição suave */
 }
 
-.line {
-    display: flex;
-    align-items: center;
+.btn:hover {
+    background-color: #FFA322;
 }
+
+.line-experience {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 70px;
+}
+
+.line {
+    z-index: 0;
+}
+
+.ellipse1, .ellipse2, .ellipse3 { position: absolute; z-index: 1; width: 25px; }
+
+.ellipse1 { left: 500px; }
+.ellipse2 { left: calc(500px + 200px); }
+.ellipse3 { left: calc((500px + 180px) + 350px); }
+
+
+
 
 .box {
     display: flex;
@@ -306,7 +346,7 @@ section {
 
 .function-experience {
     position: relative;
-    left: -0.8%;
+    left: -2%;
     z-index: 1;
 }
 
