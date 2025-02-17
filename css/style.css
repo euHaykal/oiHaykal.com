@@ -362,36 +362,31 @@ section {
     animation: grow 0.8s ease 3s forwards;
 }
 
-.test-container img {
-    width: 30px; /* Ajuste o tamanho da imagem conforme necessário */
-    height: auto; /* Mantém a proporção da imagem */
-    transition: transform 0.3s ease;
+.default-mouse {
+    width: 30px;
+    height: auto;
+
+    opacity: 0;
+    animation: grow 0.8s ease 3s forwards, mouseBounce 2s ease 4s infinite;
 }
 
-.test-container p {
+.hover-mouse {
     margin: 0;
     padding: 0;
     white-space: nowrap; /* Impede que o texto quebre em várias linhas */
     text-align: center; /* Centraliza o texto horizontalmente */
 
     opacity: 0;
-}
 
-.default-mouse {
-    opacity: 0;
-    animation: grow 0.8s ease 3s forwards, mouseBounce 2s ease 4s infinite;
-}
-
-.hover-mouse {
     opacity: 0;
     animation: fade-out-down 2s ease forwards;
 }
 
-.test-container:hover .default-mouse {
+.default-mouse:hover {
     animation-play-state: paused;
 }
 
-.test-container:hover .hover-mouse {
+.default-mouse:hover + .hover-mouse {
     animation: fade-in-up 2s ease forwards;
 }
 /* Final da Primeira página  */
