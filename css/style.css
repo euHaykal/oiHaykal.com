@@ -528,31 +528,221 @@ section {
     flex: 1;
     display: flex;
     align-items: center;
-    padding: 0 300px;
-    padding-top: 175px;
 }
 
 #page-content {
     height: 100%;
     width: 100%;
-
-    padding-left: var(--spacing-medium);
-    padding-right: var(--spacing-medium);
+    position: relative;
+    display: block;
 }
 
-.title-three{
+#title-three{
     position: relative;
-    display: flex;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-end;
+	align-items: stretch;
+	align-content: stretch;
+
+    text-align: right;
    
+    padding: 0 300px;
+    padding-top: 175px;
 }
 
 #slider {
-    margin: 0 auto;
-    width: 800px;
-    max-width: 100%;
-    text-align: center;
+   margin: 58px auto;
+   width: 854px;
+   max-width: 100%;
+   text-align: center;
+}
+#slider input[type=radio] {
+   display: none;
+}
+#slider label {
+   cursor:pointer;
+   text-decoration: none;
+}
+#slides {
+   position: relative;
+   z-index: 1;
+}
+#slides:hover #btn-more {
+    opacity: 1;
+    transition: opacity 0.3s ease; /* Adiciona uma transição suave */
+}
+#overflow {
+   width: 100%;
+   overflow: hidden;
+}
+#slide1:checked ~ #slides .inner {
+   margin-left: 0;
+}
+#slide2:checked ~ #slides .inner {
+   margin-left: -100%;
+}
+#slide3:checked ~ #slides .inner {
+   margin-left: -200%;
+}
+#slides .inner {
+   transition: margin-left 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+   width: 400%;
+   line-height: 0;
+   height: 480px;
+}
+#slides .slide {
+   width: 25%;
+   float:left;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100%;
+   color: #fff;
+   border-radius: 15px;
 }
 
+#slides .slide_1 {
+    position: relative;
+    overflow: hidden; /* Garante que o desfoque não ultrapasse os limites */
+
+    background-image: url(/img/design/tipoTipos/banner-tipoTipos.png);
+    background-size: cover;
+    background-position: center; /* Centraliza a imagem de fundo */
+    transition: background-image 0.3s ease; /* Adiciona transição suave */
+}
+#slides .slide_1:hover {
+    background-image: url(/img/design/tipoTipos/banner-tipoTipos-hover.png);
+}
+
+#slides .slide_2 {
+    position: relative;
+    overflow: hidden; /* Garante que o desfoque não ultrapasse os limites */
+
+    background-image: url(/img/design/sarue/banner-sarue.png);
+    background-size: cover;
+    background-position: center; /* Centraliza a imagem de fundo */
+    transition: background-image 0.3s ease; /* Adiciona transição suave */
+}
+#slides .slide_2:hover {
+    background-image: url(/img/design/sarue/banner-sarue-hover.png);
+}
+#slides .slide_3 {
+   background: #007EA7;
+}
+
+#subtitle {
+    font-size: 1rem;
+    font-weight: var(--font-weight-regular);
+}
+
+#tags {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: stretch;
+	align-content: stretch;
+}
+#tags #btn-more {
+    opacity: 0;
+}
+
+.tag {
+    background-color: #1F1E1E;
+    border-radius: 35px;
+    border-style: none;
+    box-sizing: border-box;
+    color: var(--seasalt);
+    display: inline-block;
+    font-family: Open Sans;
+    font-size: 1rem;
+    font-weight: 600;
+    height: 36px;
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    outline: none;
+    padding: 0 20px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+}
+
+.tag:hover,
+.tag:focus  {
+  background-color: #9747FF;
+}
+
+#tag4:hover {
+    background-color: #49021F;
+    color: #FF3366;
+}
+#tag5:hover {
+    background-color: #001E36;
+    color: #31A8FF;
+}
+
+#btn-more {
+    background-color: #FFA322;
+}
+
+/* #controls {
+   margin: -220px 0 0 0;
+   width: 100%;
+   height: 50px;
+   z-index: 3;
+   position: relative;
+}
+#controls label {
+   transition: opacity 0.2s ease-out;
+   display: none;
+   width: 50px;
+   height: 25px;
+   opacity: .4;
+}
+#controls label:hover {
+   opacity: 1;
+}
+#slide1:checked ~ #controls label:nth-child(2),
+#slide2:checked ~ #controls label:nth-child(3),
+#slide3:checked ~ #controls label:nth-child(1) {
+   background: url(/img/vector/icon-arrow-chevron-right.svg) no-repeat;
+   background-color: #C4F66C;
+   float:right;
+   margin: 0 -55px 0 0;
+   display: block;
+}
+#slide1:checked ~ #controls label:nth-last-child(2),
+#slide2:checked ~ #controls label:nth-last-child(3),
+#slide3:checked ~ #controls label:nth-last-child(1) {
+   background: url(/img/vector/icon-arrow-chevron-left.svg) no-repeat;
+   background-color: var(--pinkmauve);
+   float:left;
+   margin: 0 0 0 -55px;
+   display: block;
+} */
+#bullets {
+   margin: 30px 0 0;
+   text-align: center;
+}
+#bullets label {
+   display: inline-block;
+   width: 10px;
+   height: 10px;
+   border-radius:100%;
+   background: #444;
+   margin: 0 10px;
+}
+#slide1:checked ~ #bullets label:nth-child(1),
+#slide2:checked ~ #bullets label:nth-child(2),
+#slide3:checked ~ #bullets label:nth-child(3) {
+   background: #a8b90d ;
+}
 
 
 /* Final da Terceira página  */
