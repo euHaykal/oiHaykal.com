@@ -460,6 +460,10 @@ section {
     text-align: center;
 }
 
+.button:hover {
+    opacity: .8;
+}
+
 .button.selected,
 .button:focus {
     background-color: var(--greenmindaro);
