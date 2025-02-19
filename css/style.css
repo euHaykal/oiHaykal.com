@@ -447,8 +447,17 @@ section {
     font-family: Open Sans;
     font-size: 1rem;
     font-weight: 500;
+    
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.button-text {
+    text-align: center;
 }
 
 .button.selected,
@@ -549,7 +558,7 @@ section {
 	align-items: stretch;
 	align-content: stretch;
 
-    gap: 28px;
+    gap: 35px;
 
     padding-top: 310px;
     padding-left: 60px;
@@ -569,7 +578,7 @@ section {
     max-width: 800px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
 }
 #tags #btn-more {
     animation: btn-more-out .5s ease forwards;
@@ -586,18 +595,24 @@ section {
     font-weight: 600;
     height: 36px;
     line-height: 20px;
-    margin: 0 12px 0 0;
+    margin: 0 5px 0 0;
     outline: none;
-    padding: 0 30px;
     position: relative;
-    text-align: center;
     transition: color 100ms;
     vertical-align: baseline;
+
+    width: 135px;
+    justify-content: center;
+    align-items: center;
 
     -webkit-transition: background-color .5s ease-out, color .5s ease-out;
     -moz-transition: background-color .5s ease-out, color .5s ease-out;
     -o-transition: background-color .5s ease-out, color .5s ease-out;
     transition: background-color .5s ease-out, color .5s ease-out;
+}
+
+.tag-text {
+    text-align: center;
 }
 
 .tag:hover,
