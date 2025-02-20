@@ -51,6 +51,8 @@ h3, h4, h5, p { line-height: var(--font-height-medium); }
 
 body, html {
     overflow-x: hidden;
+    overflow-y: hidden;
+    height: 100%;
     width: 100%;
     background-color: var(--risingblack);
     font-family: var(--font-family-secundaria);
@@ -783,6 +785,104 @@ section {
    background: #a8b90d;
 }
 
+/* ---- FOOTER ---- */
+.four {
+
+    background: #000000;
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+#flower {
+    position: absolute;
+    width: 1300px;
+    z-index: -1;
+
+    margin-top: 1000px;
+    animation: rotate 30s linear infinite;
+}
+
+#footer {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: block;
+}
+
+#title-four{
+    position: relative;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	align-content: stretch;
+
+    text-align: left;
+   
+    padding: 0 300px;
+    padding-top: 175px;
+}
+
+#contact {
+    position: relative;
+	display: block;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: center;
+
+    text-align: left;
+   
+    padding: 0 300px;
+    padding-top: 125px;
+
+}
+
+.social-media-icons {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: flex-end;
+	align-content: stretch;
+
+    gap: 43px;
+}
+
+.social-media-icons a img {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: flex-end;
+	align-content: stretch;
+}
+
+#img-linkedin {
+    position: relative;
+    width: 31.25px;
+    height: 31.25px;
+}
+
+#img-behance {
+    position: relative;
+    width: 41.25px;
+    height: 26.88px;
+}
+
+#img-itchio {
+    position: relative;
+    width: 34.88px;
+    height: 31.25px;
+}
+
+
+
 /* ---- ANIMAÇÕES ---- */
 @keyframes entryHeader {
     0% { transform: translateY(-600%); }
@@ -902,3 +1002,12 @@ section {
     from { opacity: 0; transform: scale(0); }
     to { opacity: 1; transform: scale(1); }
   }
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
