@@ -844,24 +844,29 @@ section {
 
 #contact {
     position: relative;
-	display: block;
+	display: flex;
 	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: flex-start;
+	flex-wrap: wrap;
+	justify-content: space-between;
 	align-items: center;
-	align-content: center;
+	align-content: stretch;
 
     text-align: left;
    
     padding: 0 335px;
     padding-top: 90px;
 
-    left: 5%;
+    margin-left: 5%;
 }
 
 #email h4 {
     font-weight: 500;
     padding-bottom: 5px;
+}
+
+#email p a {
+    color: var(--seasalt);
+    text-decoration: none;
 }
 
 #find p {
@@ -871,11 +876,14 @@ section {
 
     margin-top: 30px;
     margin-bottom: 10px;
+
+    padding-left: 7px;
+    padding-right: 10px;
 }
 
-#find-space {
-    color: transparent;
-    border-color: 10px;
+#colored-box-text {
+    white-space: nowrap;
+    border-radius: 2px;
 }
 
 .social-media-icons {
@@ -928,6 +936,34 @@ section {
 
 .itchio:hover {
     background-image: url('/img/icons/ItchioIcon-hover.svg');
+}
+
+#logo-images {
+    position: relative;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: flex-end;
+	align-content: stretch;
+
+    text-align: right;
+   
+    padding: 0 335px;
+    padding-top: 90px;
+
+    padding-left: 11.5%;
+
+}
+
+.white-skull {
+    width: 166px;
+    height: 166px;
+}
+
+.Square-logo {
+    width: 152px;
+    height: 106px;
 }
 
 /* ---- ANIMAÇÕES ---- */
