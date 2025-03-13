@@ -304,11 +304,27 @@ section {
     z-index: 0;
 }
 
-.ellipse1, .ellipse2, .ellipse3 { position: absolute; z-index: 1; width: 25px; }
+#ellipse1, #ellipse2, #ellipse3 { position: absolute; z-index: 1; width: 25px; }
+ 
+#ellipse1 { left: 500px; }
+#ellipse2 { left: calc(500px + 200px); }
+#ellipse3 { left: calc((500px + 180px) + 350px); }
 
-.ellipse1 { left: 500px; }
-.ellipse2 { left: calc(500px + 200px); }
-.ellipse3 { left: calc((500px + 180px) + 350px); }
+.ellipse {
+    transition: transform 0.3s ease, fill 0.3s ease;
+    transform: scale(0.8);
+    cursor: pointer;
+    fill: #b4002a;
+}
+
+.ellipse.selected {
+    transform: scale(1);
+    fill: var(--redmunsell);
+}
+
+.ellipse:hover {
+    transform: scale(1);
+}
 
 .box {
     position: absolute;
@@ -324,6 +340,14 @@ section {
 
 
     animation: pulseShadow 3s ease-in-out infinite;
+}
+
+.left-box, .right-box {
+    display: none;
+}
+
+.left-box[data-ellipse="ellipse1"], .right-box[data-ellipse="ellipse1"] {
+    display: block;
 }
 
 .left-box {
@@ -348,8 +372,28 @@ section {
     padding-top: calc(11/1920 * 100vw);
 }
 
+.experience {
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0.4;
+}
+
+.experience.selected {
+    opacity: 1;
+}
+
+.experience:not(.selected):hover {
+    /* transform: scale(1.02); */
+    opacity: 0.6;
+}
+
 .number-experience{
     z-index: 0;
+}
+
+.number-experience-2{
+    z-index: 0;
+    opacity: 0;
 }
 
 .function-experience {
@@ -367,6 +411,24 @@ section {
     padding-right: calc(55/1920 * 100vw);
     padding-top: calc(65/1920 * 100vw);
     padding-bottom: calc(150/1920 * 100vw);
+    display: flex; /* Adiciona flexbox */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+}
+
+.career-text {
+    width: 100%; /* Garante que o texto ocupe a largura total */
+    text-align: left; /* Alinha o texto à esquerda */
+}
+
+.career-text p {
+    margin-bottom: 15px;
+    line-height: 1.5; 
+    display: none;
+}
+
+.career-text p[data-experience="game-designer"] {
+    display: block;
 }
 
 .light-text {
@@ -375,6 +437,15 @@ section {
 
 .career-text-weight {
     font-weight: var(--font-weight-bold);
+}
+
+#flor {
+    position: absolute;
+    width: 19px;
+    height: auto;
+
+    top: 145px;
+    left: 42px;
 }
 
 /* ---- SEÇÃO THREE ---- */
@@ -466,8 +537,7 @@ section {
     opacity: .8;
 }
 
-.button.selected,
-.button:focus {
+.button.selected {
     background-color: var(--greenmindaro);
     color: var(--risingblack);
     opacity: 1;
@@ -507,23 +577,26 @@ section {
 #slide4:checked ~ #slides .inner {
     margin-left: -300%;
 }
+ #slide5:checked ~ #slides .inner {
+    margin-left: -400%;
+}
 
 #slides .inner {
-   transition: margin-left 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
-   width: 400%;
-   line-height: 0;
-   height: 480px;
+    transition: margin-left 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+    width: 600%;
+    line-height: 0;
+    height: 480px;
 }
 
 #slides .slide {
-   width: 25%;
-   float:left;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   height: 100%;
-   color: #fff;
-   border-radius: 15px;
+    width: 16.666%;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: #fff;
+    border-radius: 15px;
 }
 
 #slides .slide_1 {
@@ -563,6 +636,32 @@ section {
 }
 #slides .slide_3:hover {
     background-image: url(/img/games/vish_vice/banner-vice-hover.png);
+}
+
+#slides .slide_4 {
+    position: relative;
+    overflow: hidden;
+
+    background-image: url(/img/design/tipoTipos/banner-tipoTipos.png);
+    background-size: cover;
+    background-position: center;
+    transition: background-image 0.3s ease;
+}
+#slides .slide_4:hover {
+    background-image: url(/img/design/tipoTipos/banner-tipoTipos-hover.png);
+}
+
+#slides .slide_5 {
+    position: relative;
+    overflow: hidden;
+
+    background-image: url(/img/design/sarue/banner-sarue.png);
+    background-size: cover;
+    background-position: center;
+    transition: background-image 0.3s ease;
+}
+#slides .slide_5:hover {
+    background-image: url(/img/design/sarue/banner-sarue-hover.png);
 }
 
 .slide-content {
@@ -689,25 +788,32 @@ section {
     background-color: #FFA322;
     color: var(--seasalt);
 }
- 
+
 #bullets {
-   margin: 5px 0 0;
-   text-align: center;
+    margin: 5px 0 0;
+    text-align: center;
 }
 
 #bullets label {
-   display: inline-block;
-   width: 10px;
-   height: 10px;
-   border-radius:100%;
-   background: #444;
-   margin: 0 10px;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background: #444;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+#bullets label:hover {
+    background: #a8b90d;
 }
 
 #slide1:checked ~ #bullets label:nth-child(1),
 #slide2:checked ~ #bullets label:nth-child(2),
-#slide3:checked ~ #bullets label:nth-child(3) {
-   background: #a8b90d;
+#slide3:checked ~ #bullets label:nth-child(3),
+#slide4:checked ~ #bullets label:nth-child(4),
+#slide5:checked ~ #bullets label:nth-child(5) {
+    background: #a8b90d;
 }
 
 /* ---- FOOTER ---- */
